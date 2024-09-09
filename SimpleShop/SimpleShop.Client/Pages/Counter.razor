@@ -1,8 +1,11 @@
 ﻿@page "/counter"
 @using SimpleShop.Client.HttpRepository.Interfaces
+@using SimpleShop.Shared.Products.Dtos
 @rendermode InteractiveAuto
 
 <PageTitle>Counter</PageTitle>
+
+<Product ProductModel="@_product"></Product>
 
 <h1>Counter</h1>
 
@@ -12,6 +15,13 @@
 
 @code {
     private int currentCount = 0;
+
+    private ProductDto _product = new ProductDto
+        {
+            Name = "Rower 1",
+            Price = 300,
+            ImageUrl = "content/images/rower-1.png"
+        };
 
     [Inject]
     public IProductHttpRepository ProductRepo { get; set; }
