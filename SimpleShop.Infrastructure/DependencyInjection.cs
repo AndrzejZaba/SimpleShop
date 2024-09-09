@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SimpleShop.Application.Common.Interfaces;
-using SimpleShop.Domain.Entities;
 using SimpleShop.Infrastructure.Persistence;
 using SimpleShop.Infrastructure.Services;
 

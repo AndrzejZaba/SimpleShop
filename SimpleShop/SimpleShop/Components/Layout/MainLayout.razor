@@ -1,23 +1,20 @@
 ﻿@inherits LayoutComponentBase
 
 <div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
 
-    <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
-        </div>
+    <header class="header">
+        <a class="header__link" href="/">
+            <img class="header__img" src="/content/images/logo-rower.png" />
+            <p class="header__title">Rowery.xyz</p>
+        </a>
+    </header>
 
-        <article class="content px-4">
-            @Body
-        </article>
+    <main class="main container">
+        @Body
     </main>
-</div>
 
-<div id="blazor-error-ui">
-    An unhandled error has occurred.
-    <a href="" class="reload">Reload</a>
-    <a class="dismiss">🗙</a>
+    <footer class="footer">
+        Copyright 2024 Rowery.xyz
+    </footer>
+
 </div>
