@@ -8,7 +8,8 @@ namespace SimpleShop.Client.Pages;
 public partial class Home
 {
     private IEnumerable<ProductDto> _products;
-    private PaginationInfo _paginationInfo = new PaginationInfo();
+    private PaginationInfo _paginationInfo = new();
+    private bool _isLoading = false;
 
     [Inject]
     public IProductHttpRepository ProductRepo { get; set; }
@@ -24,15 +25,24 @@ public partial class Home
 
     private async Task RefreshProducts()
     {
-        var paginatedList = await ProductRepo.GetAll(PageNumber, OrderInfo, SearchValue);
+        _isLoading = true;
 
-        _products = paginatedList.Items;
-        _paginationInfo = new PaginationInfo
+        try
         {
-            PageIndex = paginatedList.PageIndex,
-            TotalCount = paginatedList.TotalCount,
-            TotalPages = paginatedList.TotalPages,
-        };
+            var paginatedList = await ProductRepo.GetAll(PageNumber, OrderInfo, SearchValue);
+
+            _products = paginatedList.Items;
+            _paginationInfo = new PaginationInfo
+            {
+                PageIndex = paginatedList.PageIndex,
+                TotalCount = paginatedList.TotalCount,
+                TotalPages = paginatedList.TotalPages,
+            };
+        }
+        finally
+        {
+        _isLoading = false;
+        }
     }
 
     private async Task OnSelectedPage(int pageNumber)

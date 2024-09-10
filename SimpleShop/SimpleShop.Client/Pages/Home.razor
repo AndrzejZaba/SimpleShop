@@ -6,9 +6,9 @@
 
 <div class="row">
 
-    @if (_products == null)
+    @if (_products == null || _isLoading)
     {
-        <p>Wczytywanie danych...</p>
+        <Loading></Loading>
     }
     else if (!_products.Any())
     {
