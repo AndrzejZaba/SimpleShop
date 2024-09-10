@@ -1,0 +1,17 @@
+﻿@rendermode InteractiveAuto
+
+<div class="row">
+    <nav class="d-flex justify-content-center">
+        <ul class="pagination pagination-lg">
+
+            @foreach (var item in _links)
+            {
+                <li @onclick="() => OnSelectedPage(item)" class="page-item pagination-link @(item.Active ? "active" : "") @(item.Enabled ? "" : "disabled")" href="#">
+                    <span class="page-link">@item.Text</span>
+                </li>
+            }
+
+
+        </ul>
+    </nav>
+</div>

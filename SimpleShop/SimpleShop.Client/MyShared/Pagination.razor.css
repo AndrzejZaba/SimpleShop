@@ -1,0 +1,7 @@
+﻿.pagination-link {
+    cursor: pointer;
+}
+
+.pagination-link.disabled{
+    cursor: default;
+}
