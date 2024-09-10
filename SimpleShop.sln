@@ -7,15 +7,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleShop", "SimpleShop\Si
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleShop.Client", "SimpleShop\SimpleShop.Client\SimpleShop.Client.csproj", "{650C625E-7FF9-45B7-B773-666FDD12E58E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleShop.Application", "SimpleShop.Application\SimpleShop.Application.csproj", "{FF101335-FF99-4A95-B65A-70568914ECC4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleShop.Application", "SimpleShop.Application\SimpleShop.Application.csproj", "{FF101335-FF99-4A95-B65A-70568914ECC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleShop.Domain", "SimpleShop.Domain\SimpleShop.Domain.csproj", "{5289F8C1-5394-4013-A55A-03F686186BFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleShop.Domain", "SimpleShop.Domain\SimpleShop.Domain.csproj", "{5289F8C1-5394-4013-A55A-03F686186BFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleShop.Infrastructure", "SimpleShop.Infrastructure\SimpleShop.Infrastructure.csproj", "{D700EE5F-9EF0-4471-83E0-578F198E67A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleShop.Infrastructure", "SimpleShop.Infrastructure\SimpleShop.Infrastructure.csproj", "{D700EE5F-9EF0-4471-83E0-578F198E67A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleShop.Shared", "SimpleShop.Shared\SimpleShop.Shared.csproj", "{70A5F220-CF7D-425E-8C23-B0A99871114A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleShop.Shared", "SimpleShop.Shared\SimpleShop.Shared.csproj", "{70A5F220-CF7D-425E-8C23-B0A99871114A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleShop.WebApi", "SimpleShop.WebApi\SimpleShop.WebApi.csproj", "{C1BEE755-1292-4D23-8536-3F1A8AE45661}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleShop.WebApi", "SimpleShop.WebApi\SimpleShop.WebApi.csproj", "{C1BEE755-1292-4D23-8536-3F1A8AE45661}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

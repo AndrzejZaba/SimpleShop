@@ -1,0 +1,28 @@
+﻿@page "/"
+
+@rendermode InteractiveAuto
+
+<PageTitle>Strona Główna - Rowery.xyz</PageTitle>
+
+<div class="row">
+
+    @if (_products == null)
+    {
+        <p>Wczytywanie danych...</p>
+    }
+    else if (!_products.Any())
+    {
+        <p>Brak produktów</p>
+    }
+    else
+    {
+        @foreach (var item in _products)
+        {
+            <Product ProductModel="item"></Product>
+        }
+    }
+
+</div>
+
+
+
