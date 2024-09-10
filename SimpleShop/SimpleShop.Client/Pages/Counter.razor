@@ -26,11 +26,6 @@
     [Inject]
     public IProductHttpRepository ProductRepo { get; set; }
 
-
-    protected override async Task OnInitializedAsync()
-    {
-        ProductRepo.Test();
-    }
     private void IncrementCount()
     {
         currentCount++;

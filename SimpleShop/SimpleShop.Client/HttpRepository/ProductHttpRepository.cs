@@ -1,11 +1,13 @@
 ﻿using SimpleShop.Client.HttpRepository.Interfaces;
 
-namespace SimpleShop.Client.HttpRepository
+namespace SimpleShop.Client.HttpRepository;
+
+public class ProductHttpRepository : IProductHttpRepository
 {
-    public class ProductHttpRepository : IProductHttpRepository
+    private readonly HttpClient _client;
+
+    public ProductHttpRepository(HttpClient client)
     {
-        public void Test()
-        {
-        }
+        _client = client;
     }
 }
