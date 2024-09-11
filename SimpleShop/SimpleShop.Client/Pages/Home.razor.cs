@@ -51,4 +51,12 @@ public partial class Home
         
         await RefreshProducts();
     }
+
+    private async Task OnSearchValueChanged(string searchValue)
+    {
+        SearchValue = searchValue;
+        PageNumber = 1;
+        await RefreshProducts();
+    }
+
 }

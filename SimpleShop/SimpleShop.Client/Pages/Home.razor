@@ -4,6 +4,12 @@
 
 <PageTitle>Strona Główna - Rowery.xyz</PageTitle>
 
+<div class="row mb-4">
+    <div class="col-6">
+        <Search SearchValueChanged="OnSearchValueChanged"></Search>
+    </div>
+</div>
+
 <div class="row">
 
     @if (_products == null || _isLoading)
