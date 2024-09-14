@@ -1,11 +1,12 @@
 ﻿using Microsoft.AspNetCore.Components;
+using SimpleShop.Client.HttpInterceptor;
 using SimpleShop.Client.HttpRepository.Interfaces;
 using SimpleShop.Client.Models;
 using SimpleShop.Shared.Products.Dtos;
 
 namespace SimpleShop.Client.Pages;
 
-public partial class Home
+public partial class Home : IDisposable
 {
     private IEnumerable<ProductDto> _products;
     private PaginationInfo _paginationInfo = new();
@@ -13,6 +14,9 @@ public partial class Home
 
     [Inject]
     public IProductHttpRepository ProductRepo { get; set; }
+    
+    [Inject]
+    public HttpInterceptorService Interceptor { get; set; }
 
     public int PageNumber { get; set; } = 1;
     public string OrderInfo { get; set; }
@@ -20,6 +24,7 @@ public partial class Home
 
     protected override async Task OnInitializedAsync()
     {
+        Interceptor.RegisterEvent();
         await RefreshProducts();
     }
 
@@ -66,4 +71,8 @@ public partial class Home
         await RefreshProducts();
     }
 
+    public void Dispose()
+    {
+        Interceptor.DisposeEvent();
+    }
 }
