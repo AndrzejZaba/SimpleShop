@@ -1,0 +1,30 @@
+﻿@page "/potwierdzenie"
+
+@rendermode InteractiveAuto
+
+<PageTitle></PageTitle>
+
+@if (_isLoading)
+{
+    <Loading />
+}
+else
+{
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col text-success text-center fs-1" role="alert">
+                    Wszystko się udało. Twoj płatność została potwierdzona
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="row">
+    <div class="col text-md-center m-5 text-primary">
+        <a href="/" class="btn btn-primary">
+            Przejdź do strony głównej
+        </a>
+    </div>
+</div>

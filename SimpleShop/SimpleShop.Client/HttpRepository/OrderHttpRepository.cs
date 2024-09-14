@@ -15,4 +15,6 @@ public class OrderHttpRepository : IOrderHttpRepository
 
     }
     public async Task Add(AddOrderCommand command) => await _client.PostAsJsonAsync("orders", command);
+
+    public async Task Confirm(ConfirmOrderCommand command) => await _client.PostAsJsonAsync("orders/confirm", command);
 }
