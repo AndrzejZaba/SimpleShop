@@ -1,11 +1,10 @@
 ﻿@page "/counter"
+@using Blazored.LocalStorage
 @using SimpleShop.Client.HttpRepository.Interfaces
 @using SimpleShop.Shared.Products.Dtos
 @rendermode InteractiveAuto
 
 <PageTitle>Counter</PageTitle>
-
-<Product ProductModel="@_product"></Product>
 
 <h1>Counter</h1>
 
@@ -16,18 +15,25 @@
 @code {
     private int currentCount = 0;
 
-    private ProductDto _product = new ProductDto
-        {
-            Name = "Rower 1",
-            Price = 300,
-            ImageUrl = "content/images/rower-1.png"
-        };
-
     [Inject]
     public IProductHttpRepository ProductRepo { get; set; }
 
-    private void IncrementCount()
+    [Inject]
+    public ILocalStorageService LocalStorage { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            var counter = await LocalStorage.GetItemAsync<int>("counter");
+            currentCount = counter;
+            StateHasChanged();
+        }
+    }
+
+    private async void IncrementCount()
     {
         currentCount++;
+        await LocalStorage.SetItemAsync("counter", currentCount);
     }
 }
