@@ -1,0 +1,53 @@
+﻿@page "/koszyk"
+
+@rendermode InteractiveAuto
+
+<PageTitle>Koszyk - Rowery.xyz</PageTitle>
+
+<table class="table table-responsive text-center align-middle my-5">
+    <thead>
+        <tr>
+            <th width="25%">Produkt</th>
+            <th width="25%">Nazwa</th>
+            <th width="25%">Cena</th>
+            <th width="25%">Usuń</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (_products == null)
+        {
+            <tr><td colspan="4">Trwa ładowanie...</td></tr>
+        }
+        else if (!_products.Any())
+        {
+            <tr><td colspan="4">Brak produktów w koszyku</td></tr>
+        }
+        else
+        {
+            @foreach (var item in _products)
+            {
+                <tr>
+                    <td>
+                        <img src="@(_baseUrl + item.ImageUrl)" width="100" class="my-3"/>
+                    </td>
+                    <td>@item.Name</td>
+                    <td>@item.Price PLN</td>
+                    <td><i class="fa-solid fa-trash-can cart-remove" @onclick="() => OnDeleteProductFromCart(item.Id)"></i></td>
+                </tr>
+            }
+        }
+    </tbody>
+    <tfoot>
+        <tr><td colspan="4" class="text-end pe-5 fw-bold">Wartość zamówienia: @_totalValue PLN</td></tr>
+    </tfoot>
+</table>
+
+<div class="d-flex justify-content-between px-5">
+    <button class="btn btn-secondary btn-lg" @onclick="GoHome">Kontynuuj zakupy</button>
+
+    @if (_products != null && _products.Any())
+    {
+        <button class="btn btn-primary btn-lg" @onclick="ConfirmOrder">Zamawiam</button>
+    }
+
+</div>
