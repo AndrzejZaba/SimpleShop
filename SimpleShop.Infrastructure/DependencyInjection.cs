@@ -26,6 +26,9 @@ namespace SimpleShop.Infrastructure
 
             services.AddScoped<IDateTimeService, DateTimeService>();
 
+            services.AddScoped<IAuthenticationService, AuthenticationService>();
+
+            services.AddScoped<IEmail, Email>();
             return services;
         }
     }
