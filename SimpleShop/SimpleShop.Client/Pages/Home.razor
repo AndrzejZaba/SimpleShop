@@ -1,8 +1,26 @@
 ﻿@page "/"
+@using System.Security.Claims
 
 @rendermode InteractiveAuto
 
 <PageTitle>Strona Główna - Rowery.xyz</PageTitle>
+
+
+@* <AuthorizeView>
+    <Authorized>
+        Użytkownik jest zalogowany... Nazwa: @context.User.FindFirst(ClaimTypes.Name).Value
+    </Authorized>
+    <NotAuthorized>
+        Użytkownik nie jest zalogowany
+    </NotAuthorized>
+</AuthorizeView>
+
+<AuthorizeView Roles="Administrator">
+    <Authorized>
+        Użytkownik jest Administratorem!
+    </Authorized>
+    
+</AuthorizeView> *@
 
 <div class="row mb-4">
     <div class="col-6">

@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Authorization;
 using SimpleShop.Client.HttpInterceptor;
 using SimpleShop.Client.HttpRepository.Interfaces;
 using SimpleShop.Client.Models;
 using SimpleShop.Shared.Products.Dtos;
+using System.Security.Claims;
 
 namespace SimpleShop.Client.Pages;
 
