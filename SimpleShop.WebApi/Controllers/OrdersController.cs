@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SimpleShop.Shared.Orders.Commands;
 
 namespace SimpleShop.WebApi.Controllers
@@ -8,6 +9,7 @@ namespace SimpleShop.WebApi.Controllers
     public class OrdersController : BaseApiController
     {
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> Add(AddOrderCommand command)
         {
             await Mediator.Send(command);

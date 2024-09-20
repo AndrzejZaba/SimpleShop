@@ -10,6 +10,7 @@ namespace SimpleShop.WebApi.Controllers
     public class PaymentsController : BaseApiController
     {
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> Add(AddPaymentCommand command)
         {
             return Ok(await Mediator.Send(command));
