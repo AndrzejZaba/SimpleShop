@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using MediatR;
+using System.ComponentModel.DataAnnotations;
 
 namespace SimpleShop.Shared.Authentication.Commands;
 
-public class ResetPasswordCommand
+public class ResetPasswordCommand : IRequest
 {
     [Required(ErrorMessage = "Hasło jest wymagane")]
     [StringLength(100, ErrorMessage = "Hasło musi być bezpieczne", MinimumLength = 8)]
