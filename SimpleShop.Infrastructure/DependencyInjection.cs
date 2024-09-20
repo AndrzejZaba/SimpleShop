@@ -40,7 +40,7 @@ namespace SimpleShop.Infrastructure
                         RequireUppercase = true,
                         RequireNonAlphanumeric = true
                     };
-                }).AddEntityFrameworkStores<ApplicationDbContext>();
+                }).AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
 
             services.AddScoped<IPaymentService, PaymentService>();
 

@@ -15,5 +15,5 @@ public class RegisterUserCommand : IRequest
 
     [Compare(nameof(Password), ErrorMessage = "Hasła muszą być takie same")] 
     public string ConfirmPassword { get; set; }
-    public string ClientUri { get; set; }
+    public string ClientURI { get; set; }
 }

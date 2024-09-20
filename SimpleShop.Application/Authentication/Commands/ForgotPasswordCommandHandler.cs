@@ -34,7 +34,7 @@ public class ForgotPasswordCommandHandler : IRequestHandler<ForgotPasswordComman
             { "email", request.Email }
         };
 
-        var callback = QueryHelpers.AddQueryString(request.ClientUri, param);
+        var callback = QueryHelpers.AddQueryString(request.ClientURI, param);
 
         var body = $"<p><span style=\"font-size: 14px;\">Dzień dobry {user.Email}.</span></p><p><span style=\"font-size: 14px;\">W celu zrestowania hasła w aplikacji SimpleShop.pl kliknij w poniższy link:</span></p><p><span style=\"font-size: 14px;\"><a href='{callback}'>kliknij tutaj</a></span></p><p><span style=\"font-size: 14px;\">Pozdrawiam,</span><br /><span style=\"font-size: 14px;\">Kazimierz Szpin.</span><br /><span style=\"font-size: 14px;\">SimpleShop.pl</span>";
 

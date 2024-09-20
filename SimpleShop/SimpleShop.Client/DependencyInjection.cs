@@ -5,6 +5,7 @@ using SimpleShop.Client.HttpInterceptor;
 using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components.Authorization;
 using SimpleShop.Client.AuthStateProviders;
+using SimpleShop.Client.Services;
 
 namespace SimpleShop.Client;
 
@@ -39,6 +40,8 @@ public static class DependencyInjection
 
         services.AddCascadingAuthenticationState();
 
+        services.AddScoped<IAuthenticationHttpRepository, AuthenticationHttpRepository>();
+        services.AddScoped<RefreshTokenService>();
         return services;
 
     }

@@ -1,0 +1,58 @@
+﻿@page "/rejestracja"
+
+@rendermode InteractiveAuto
+
+<PageTitle>Stwórz nowe konto</PageTitle>
+
+<section class="register-form">
+    <h1 class="register-form__heading"></h1>
+
+    @if(_showErrors)
+    {
+        <div class="alert alert-danger mx-4" role="alert">
+            @foreach(var error in _errors)
+            {
+                <div>@error</div>
+            }
+        </div>
+    }
+
+    <EditForm Model="_command" OnValidSubmit="Save">
+        <DataAnnotationsValidator />
+        <ValidationSummary/>
+        <div class="register-form__group">
+            <label class="register-form__label">Wprowadź adres email</label>
+            <InputText class="register-form__text"
+                @bind-Value="_command.Email"
+                type="email"
+                placeholder="Wprowadź adres email" />
+
+        </div>
+
+        <div class="register-form__group">
+            <label class="register-form__label">Wprowadź hasło:</label>
+            <InputText @bind-Value="_command.Password"
+                       class="register-form__text"
+                       type="password"
+                       placeholder="Wprowadź hasło" />
+        </div>
+
+        <div class="register-form__group">
+            <label class="register-form__label">Potwierdź hasło:</label>
+            <InputText @bind-Value="_command.ConfirmPassword"
+                       class="register-form__text"
+                       type="password"
+                       placeholder="Potwierdź hasło" />
+        </div>
+
+        <button class="register-form__button register-form__button--primary">
+            Rejestruj
+        </button>
+
+        <div class="register-form__link">
+            <a href="/logowanie" class="register-form__a">Mam już swoje konto</a>
+
+        </div>
+
+    </EditForm>
+</section>
