@@ -4,8 +4,8 @@
 
 <PageTitle>Zamówienie - Rowery.xyz</PageTitle>
 
-<AuthorizeView>
-    <Authorized Context="AuthContext">
+<Auth>
+    <ChildContent Context="AuthContext">
         <div class="row my-4">
 
             <h4>Dane do zamówienia</h4>
@@ -32,9 +32,7 @@
                 </EditForm>
             </div>
         </div>
-    </Authorized>
-    <NotAuthorized>
-        <RedirectToLogin></RedirectToLogin>
-    </NotAuthorized>
-</AuthorizeView>
+    </ChildContent>
+
+</Auth>
 

@@ -1,5 +1,6 @@
 ﻿using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.JSInterop;
 using SimpleShop.Client.HttpInterceptor;
@@ -7,6 +8,7 @@ using SimpleShop.Client.HttpRepository.Interfaces;
 using SimpleShop.Shared.Orders.Commands;
 using SimpleShop.Shared.Payments.Commands;
 using SimpleShop.Shared.Products.Dtos;
+using System.Security.Claims;
 
 namespace SimpleShop.Client.Pages;
 
@@ -37,6 +39,9 @@ public partial class Order : IDisposable
     [Inject]
     public IJSRuntime JS { get; set; }
 
+    [CascadingParameter]
+    public Task<AuthenticationState> AuthState { get; set; }
+
     protected override async Task OnInitializedAsync()
     {
         Interceptor.RegisterEvent();
@@ -54,7 +59,14 @@ public partial class Order : IDisposable
 
             _command.Value = products.Select(x => x.Price).Sum();
 
+            var authState = await AuthState;
+            var user = authState.User;
 
+            if (authState.User.Identity.IsAuthenticated) 
+            {
+                _command.UserEmail = user.FindFirst(ClaimTypes.Name).Value;
+                StateHasChanged();
+            }
         }
     }
     private async Task Save()
