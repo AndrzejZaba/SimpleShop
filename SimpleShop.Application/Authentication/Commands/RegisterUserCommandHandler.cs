@@ -59,9 +59,9 @@ public class RegisterUserCommandHandler : IRequestHandler<RegisterUserCommand>
 
         var body = $"<p><span style=\"font-size: 14px;\">Dzień dobry {user.Email}.</span></p><p><span style=\"font-size: 14px;\">Dziękujemy za założenie konta w aplikacji SimpleShop.pl.</span></p><p><span style=\"font-size: 14px;\">Aby aktywować swoje konto kliknij w poniższy link:</span></p><p><span style=\"font-size: 14px;\"><a href='{callback}'>kliknij tutaj</a></span></p><p><span style=\"font-size: 14px;\">Pozdrawiam,</span><br /><span style=\"font-size: 14px;\">Kazimierz Szpin.</span><br /><span style=\"font-size: 14px;\">SimpleShop.pl</span>";
 
-        await _emailSender.Send(
-                "Aktywuj swoje konto",
-                body,
-                user.Email);
+            //await _emailSender.Send(
+            //        "Aktywuj swoje konto",
+            //        body,
+            //        user.Email);
     }
 }

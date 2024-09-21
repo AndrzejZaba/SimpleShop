@@ -1,0 +1,26 @@
+﻿@page "/potwierdzenie-email"
+
+@rendermode InteractiveAuto
+
+<PageTitle>Potwierdzenie</PageTitle>
+
+
+<section class="confirm-email">
+    <h1 class="confirm-email__heading">Potwierdzenie</h1>
+    <div class="confirm-email__p">
+        @if (_showError)
+        {
+            <p>Nie udało się aktywować konta.</p>
+            <p>Spróbuj ponownie lub skontaktuj się z administratorem.</p>
+        }
+
+        @if (_showSuccess)
+        {
+            <p>Twoje konto zostało aktywowane ✅</p>
+
+
+            <a class="btn btn-primary btn-lg mt-3" href="/logowanie">Zaloguj się</a>
+
+        }
+    </div>
+</section>
