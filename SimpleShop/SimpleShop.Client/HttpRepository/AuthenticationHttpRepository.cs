@@ -115,8 +115,8 @@ namespace SimpleShop.Client.HttpRepository
             await _localStorage.SetItemAsync("authToken", result.Token);
             await _localStorage.SetItemAsync("refreshToken", result.RefreshToken);
 
-            //((AuthStateProvider)_authStateProvider).NotifyUserAuthentication(
-            //    result.Token);
+            ((AuthStateProvider)_authStateProvider).NotifyUserAuthentication(
+                result.Token);
 
             _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
                 "bearer", result.Token);

@@ -42,4 +42,13 @@ public class AuthStateProvider : AuthenticationStateProvider
 
         //return await Task.FromResult(auth);
     }
+
+    public void NotifyUserAuthentication(string token)
+    {
+        var authenticatedUser = new ClaimsPrincipal(new ClaimsIdentity(JwtParser.ParseClaimsFromJwt(token), "jwtAuthType"));
+
+        var authState = Task.FromResult(new AuthenticationState(authenticatedUser));
+
+        NotifyAuthenticationStateChanged(authState);
+    }
 }
