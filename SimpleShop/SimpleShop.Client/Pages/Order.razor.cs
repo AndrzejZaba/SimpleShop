@@ -1,5 +1,6 @@
 ﻿using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Web;
 using Microsoft.JSInterop;
 using SimpleShop.Client.HttpInterceptor;
 using SimpleShop.Client.HttpRepository.Interfaces;
@@ -11,6 +12,8 @@ namespace SimpleShop.Client.Pages;
 
 public partial class Order : IDisposable
 {
+    static IComponentRenderMode _renderMode = new InteractiveAutoRenderMode(prerender: false);
+
     private AddOrderCommand _command = new AddOrderCommand
     {
         UserId = "1"
@@ -37,6 +40,7 @@ public partial class Order : IDisposable
     protected override async Task OnInitializedAsync()
     {
         Interceptor.RegisterEvent();
+        Interceptor.RegisterBeforeSendEvent();
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
