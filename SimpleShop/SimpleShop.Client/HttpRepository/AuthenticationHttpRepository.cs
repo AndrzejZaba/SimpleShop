@@ -129,7 +129,7 @@ namespace SimpleShop.Client.HttpRepository
             await _localStorage.RemoveItemAsync("authToken");
             await _localStorage.RemoveItemAsync("refreshToken");
 
-            //((AuthStateProvider)_authStateProvider).NotifyUserLogout();
+            ((AuthStateProvider)_authStateProvider).NotifyUserLogout();
 
             _client.DefaultRequestHeaders.Authorization = null;
         }
